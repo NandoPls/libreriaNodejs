@@ -9,8 +9,11 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "express": "^4.21.0",
+    "multer": "^1.4.5-lts.1",
+    "next": "14.2.13",
+    "pdfjs-dist": "^4.6.82",
     "react": "^18",
-    "react-dom": "^18",
-    "next": "14.2.13"
+    "react-dom": "^18"
   }
 }
