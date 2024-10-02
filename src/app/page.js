@@ -11,7 +11,7 @@ export default function Home() {
   useEffect(() => {
     const loadBooks = async () => {
       console.log("Cargando libros...");
-      const response = await fetch("/api/books");
+      const response = await fetch("./api/books");
       const result = await response.json();
       console.log("Libros cargados:", result);
       setBooks(result);
@@ -39,7 +39,7 @@ export default function Home() {
 
     formData.append("pdf", pdfFile);
     try {
-      const response = await fetch("/api/upload", {
+      const response = await fetch("./api/upload", {
         method: "POST",
         body: formData,
       });
@@ -63,7 +63,7 @@ export default function Home() {
       return;
     }
     try {
-      const response = await fetch("/api/delete", {
+      const response = await fetch("./api/delete", {
         method: "POST",
         body: JSON.stringify({ pdfPath }),
         headers: {
@@ -142,7 +142,7 @@ export default function Home() {
               ))
             ) : (
               <p className="no-books">
-                No se encontraron libros. Agrega libros en la carpeta /uploads.
+                No se encontraron libros. Agrega libros en la carpeta ./uploads.
               </p>
             )}
           </div>
