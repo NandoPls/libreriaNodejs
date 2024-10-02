@@ -1,6 +1,10 @@
 "use client";
 import { useState, useEffect, useRef } from "react";
+import dynamic from 'next/dynamic';  // Importa dynamic para evitar SSR del worker
 import PDFViewer from "./reader/[id]";
+
+// Deshabilitar la carga del worker en el servidor
+const PDFWorker = dynamic(() => import('pdfjs-dist/build/pdf.worker.min.mjs'), { ssr: false });
 
 export default function Home() {
   const [books, setBooks] = useState([]);
@@ -17,6 +21,15 @@ export default function Home() {
       setBooks(result);
     };
     loadBooks();
+  }, []);
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      // El código del worker solo se ejecutará en el lado del cliente
+      import('pdfjs-dist/build/pdf.worker.min.mjs').then(() => {
+        console.log("PDF worker cargado en el cliente");
+      });
+    }
   }, []);
 
   const handleFileUpload = async (event) => {
