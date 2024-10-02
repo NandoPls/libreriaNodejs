@@ -1,10 +1,7 @@
 "use client";
-import { useState, useEffect, useRef } from "react";
-import dynamic from 'next/dynamic';  
+import { useState, useEffect, useRef } from "react"; 
 import PDFViewer from "./reader/[id]";
 
-
-const PDFWorker = dynamic(() => import('pdfjs-dist/build/pdf.worker.min.mjs'), { ssr: false });
 
 export default function Home() {
   const [books, setBooks] = useState([]);
@@ -21,15 +18,6 @@ export default function Home() {
       setBooks(result);
     };
     loadBooks();
-  }, []);
-
-  useEffect(() => {
-    if (typeof window !== 'undefined') {
-      // El código del worker solo se ejecutará en el lado del cliente
-      import('pdfjs-dist/build/pdf.worker.min.mjs').then(() => {
-        console.log("PDF worker cargado en el cliente");
-      });
-    }
   }, []);
 
   const handleFileUpload = async (event) => {
