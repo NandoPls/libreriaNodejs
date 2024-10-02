@@ -145,7 +145,7 @@ export default function Home() {
                       Leer
                     </button>
                     <button
-                      className="delete"
+                      className="delete"  
                       onClick={() => handleDelete(book.pdf)}
                     >
                       Borrar
