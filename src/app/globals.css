@@ -163,3 +163,26 @@ body {
 .dark-mode .mode-button:hover {
   background-color: #cc0000;
 }
+
+.pdf-viewer-container {
+  width: 100%;
+  max-width: 800px;
+  margin: auto;
+  padding: 20px;
+}
+
+.back-button {
+  padding: 10px 20px;
+  margin-bottom: 10px;
+  background-color: #0070f3;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.back-button:hover {
+  background-color: #005bb5;
+  transform: translateY(-2px);
+}
