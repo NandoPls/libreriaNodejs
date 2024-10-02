@@ -1,9 +1,9 @@
 "use client";
 import { useState, useEffect, useRef } from "react";
-import dynamic from 'next/dynamic';  // Importa dynamic para evitar SSR del worker
+import dynamic from 'next/dynamic';  
 import PDFViewer from "./reader/[id]";
 
-// Deshabilitar la carga del worker en el servidor
+
 const PDFWorker = dynamic(() => import('pdfjs-dist/build/pdf.worker.min.mjs'), { ssr: false });
 
 export default function Home() {
